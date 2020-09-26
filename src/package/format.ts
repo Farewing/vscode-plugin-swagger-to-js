@@ -43,7 +43,10 @@ export const transform = (node: Schema): string => {
         return `{ [key: string]: any }`;
       }
 
-      let properties = createKeys(node.properties || {}, node.required);
+      let properties = "";
+      if (node.properties && Object.keys(node.properties).length) {
+        properties = createKeys(node.properties || {}, node.required);
+      }
 
       // if additional properties, add to end of properties
       if (node.additionalProperties) {
@@ -51,7 +54,7 @@ export const transform = (node: Schema): string => {
           getNodeType(node.additionalProperties) || "any"
         };\n`;
       }
-      return properties;
+      return `{ ${properties} }`;
       // return tsIntersectionOf([
       //   ...(node.allOf ? (node.allOf as any[]).map(transform) : []), // append allOf first
       //   ...(properties ? [`{ ${properties} }`] : []), // then properties + additionalProperties
@@ -99,7 +102,7 @@ export const createInterface = (obj: { [key: string]: any }) => {
 
     // const name = getDefinitionKey(key);
 
-    output += `interface ${key} ${transform(value)} ;\n`;
+    output += `interface ${key}  ${transform(value)} ;\n`;
   });
 
   return output;

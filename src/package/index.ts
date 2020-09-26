@@ -111,14 +111,14 @@ export const generateTypes = (
   const resDefinitions = pickObjofKeys(jsonSchema.definitions, resKeys);
   const paramsDefinitions = pickObjofKeys(jsonSchema.definitions, paramsKeys);
 
-  const result = `${createInterface(paramsDefinitions)} \n\n  ${createInterface(
+  const result = `${createInterface(paramsDefinitions)}\n${createInterface(
     resDefinitions
   )} `;
 
-  return result;
+  // return result;
 
-  // return prettier.format(result, {
-  //   singleQuote: true,
-  //   parser: "typescript",
-  // });
+  return prettier.format(result, {
+    singleQuote: true,
+    parser: "typescript",
+  });
 };

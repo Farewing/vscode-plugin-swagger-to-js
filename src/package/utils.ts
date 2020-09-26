@@ -20,7 +20,8 @@ type SchemaObjectType =
   | "object"
   | "oneOf"
   | "ref"
-  | "string";
+  | "string"
+  | "any";
 
 /**
  * 获取节点类型
@@ -74,6 +75,10 @@ export function getNodeType(obj: any): SchemaObjectType | undefined {
     return "array";
   }
 
+  if (obj.type === "object" && Object.keys(obj).length === 1) {
+    return "any";
+  }
+
   // return object by default
   return "object";
 }
@@ -105,7 +110,7 @@ export const getSchemaAndKeys = (
     ? refSchema?.properties?.content
     : refSchema;
 
-  const keys = contentSchema?.$ref ? [] : [refSchema.$ref];
+  const keys = contentSchema?.$ref ? [contentSchema.$ref] : [refSchema.$ref];
 
   const schema = contentSchema?.$ref
     ? definitions[getDefinitionKey(contentSchema.$ref)]

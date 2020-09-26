@@ -10,14 +10,29 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:swagger-to-ts.helloWorld"
+    "onCommand:swagger-to-ts.get",
+    "onCommand:swagger-to-ts.post",
+    "onCommand:swagger-to-ts.delete",
+    "onCommand:swagger-to-ts.put"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "swagger-to-ts.helloWorld",
-        "title": "Hello World"
+        "command": "swagger-to-ts.get",
+        "title": "swagger-to-ts GET"
+      },
+      {
+        "command": "swagger-to-ts.post",
+        "title": "swagger-to-ts POST"
+      },
+      {
+        "command": "swagger-to-ts.put",
+        "title": "swagger-to-ts PUT"
+      },
+      {
+        "command": "swagger-to-ts.delete",
+        "title": "swagger-to-ts DELETE"
       }
     ]
   },
