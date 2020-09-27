@@ -9,9 +9,7 @@ export const fetchSwaggerJson = async () => {
   decache(pkgJsonPath);
   const pkgJson = require(pkgJsonPath);
 
-  const swaggerUrl =
-    pkgJson?.swaggerUrl ||
-    "http://buffett.caijing.alibaba.net:7001/v2/api-docs?group=flowAPI";
+  const swaggerUrl = pkgJson?.swaggerUrl;
 
   if (!swaggerUrl) {
     vscode.window.showErrorMessage("请在 package.json 中配置 swaggerUrl 字段");
