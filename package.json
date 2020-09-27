@@ -9,7 +9,7 @@
     "url": "https://github.com/Farewing/vscode-plugin-swagger-to-js.git"
   },
   "engines": {
-    "vscode": "^1.39.0"
+    "vscode": "^1.49.0"
   },
   "icon": "image/icon.png",
   "categories": [
