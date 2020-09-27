@@ -16,7 +16,10 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onCommand:swagger-to-ts.post",
+    "onCommand:swagger-to-ts.get",
+    "onCommand:swagger-to-ts.delete",
+    "onCommand:swagger-to-ts.put"
   ],
   "main": "./out/extension.js",
   "contributes": {
