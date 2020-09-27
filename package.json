@@ -1,6 +1,7 @@
 {
   "name": "swagger-to-ts",
   "displayName": "swagger-to-ts",
+  "publisher": "farewing",
   "description": "",
   "version": "0.0.1",
   "engines": {
