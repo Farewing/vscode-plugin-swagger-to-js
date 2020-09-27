@@ -9,35 +9,37 @@
     "url": "https://github.com/Farewing/vscode-plugin-swagger-to-js.git"
   },
   "engines": {
-    "vscode": "^1.49.0"
+    "vscode": "^1.39.0"
   },
+  "icon": "image/icon.svg",
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onCommand:swagger-to-ts.get",
-    "onCommand:swagger-to-ts.post",
-    "onCommand:swagger-to-ts.delete",
-    "onCommand:swagger-to-ts.put"
+    "*"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "swagger-to-ts.get",
-        "title": "swagger-to-ts GET"
+        "title": "GET",
+        "category": "swagger-to-ts"
       },
       {
         "command": "swagger-to-ts.post",
-        "title": "swagger-to-ts POST"
+        "title": "POST",
+        "category": "swagger-to-ts"
       },
       {
         "command": "swagger-to-ts.put",
-        "title": "swagger-to-ts PUT"
+        "title": "PUT",
+        "category": "swagger-to-ts"
       },
       {
         "command": "swagger-to-ts.delete",
-        "title": "swagger-to-ts DELETE"
+        "title": "DELETE",
+        "category": "swagger-to-ts"
       }
     ]
   },

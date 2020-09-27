@@ -10,14 +10,13 @@ const langList = [
   "javascript",
   "typescriptreact",
   "javascriptreact",
+  "json",
 ];
-const outputMessage =
-  "Please select swagger-url or TypeScript or JavaScript function signature";
 
 export const generate = async (method: Method) => {
   const lang = vscode.window.activeTextEditor?.document.languageId || "";
   if (!langList.includes(lang)) {
-    vscode.window.showInformationMessage("Only support ts or js");
+    vscode.window.showInformationMessage("Only support ts, js or json file");
     return;
   }
 
@@ -28,7 +27,7 @@ export const generate = async (method: Method) => {
   ) as string;
 
   if (selectedText.length === 0) {
-    vscode.window.showInformationMessage(outputMessage);
+    vscode.window.showInformationMessage("Please select request url ");
     return;
   }
 
