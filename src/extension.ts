@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { generate } from "./index";
+import { generate } from "./generate";
 
 export function activate(context: vscode.ExtensionContext) {
   // The command has been defined in the package.json file
