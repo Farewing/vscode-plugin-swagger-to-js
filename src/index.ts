@@ -22,7 +22,7 @@ export const generate = async (method: Method) => {
   }
 
   const selection = vscode.window.activeTextEditor?.selection as Selection;
-  const startLine = selection.start.line - 1;
+  // const startLine = selection.start.line - 1;
   const selectedText = vscode.window.activeTextEditor?.document.getText(
     selection
   ) as string;
@@ -32,13 +32,16 @@ export const generate = async (method: Method) => {
     return;
   }
 
+  const url = selectedText.replace(/'/g, "");
+
   try {
     const jsonSchema = await fetchSwaggerJson();
-    const result = generateTypes(jsonSchema, "/buffett-flow/interim", method);
+    const result = generateTypes(jsonSchema, url, method);
     console.log(result);
     await clipboardy.write(result);
+    vscode.window.showInformationMessage("生成成功，已复制到粘贴板");
   } catch (error) {
-    vscode.window.showErrorMessage("发送错误");
+    // vscode.window.showErrorMessage("发送错误");
     throw new Error(error);
   }
 };

@@ -25,11 +25,11 @@ const getDefinition = (
   const { paths, definitions } = jsonSchema;
   const urlSchema = paths[url];
   if (!urlSchema) {
-    throw new Error("未找到对应 URL 的定义");
+    throw new Error(`未找到对应 ${url} 的定义`);
   }
   const methodSchema = urlSchema[method];
   if (!methodSchema) {
-    throw new Error("未找到对应请求方式的定义");
+    throw new Error(`未找到对应请求方式 ${method} 的定义`);
   }
 
   const paramsSchema = methodSchema?.parameters
