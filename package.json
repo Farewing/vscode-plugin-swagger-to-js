@@ -3,7 +3,7 @@
   "displayName": "swagger-to-ts",
   "publisher": "farewing",
   "description": "",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "repository": "https://github.com/Farewing/vscode-plugin-swagger-to-js.git",
   "engines": {
     "vscode": "^1.49.0"
