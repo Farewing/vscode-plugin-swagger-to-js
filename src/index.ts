@@ -36,7 +36,7 @@ export const generate = async (method: Method) => {
   try {
     const jsonSchema = await fetchSwaggerJson();
     const result = generateTypes(jsonSchema, url, method);
-    console.log(result);
+
     await clipboardy.write(result);
     vscode.window.showInformationMessage("生成成功，已复制到粘贴板");
   } catch (error) {

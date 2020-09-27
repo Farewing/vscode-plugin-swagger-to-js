@@ -26,7 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
     generate("delete")
   );
 
-  context.subscriptions.push(get, post, put, deleteM);
+  context.subscriptions.push(post);
 }
 
 // this method is called when your extension is deactivated
