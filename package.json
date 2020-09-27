@@ -16,31 +16,31 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:swagger-to-ts.post",
-    "onCommand:swagger-to-ts.get",
-    "onCommand:swagger-to-ts.delete",
-    "onCommand:swagger-to-ts.put"
+    "onCommand:extension.post",
+    "onCommand:extension.get",
+    "onCommand:extension.delete",
+    "onCommand:extension.put"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "swagger-to-ts.get",
+        "command": "extension.get",
         "title": "GET",
         "category": "swagger-to-ts"
       },
       {
-        "command": "swagger-to-ts.post",
+        "command": "extension.post",
         "title": "POST",
         "category": "swagger-to-ts"
       },
       {
-        "command": "swagger-to-ts.put",
+        "command": "extension.put",
         "title": "PUT",
         "category": "swagger-to-ts"
       },
       {
-        "command": "swagger-to-ts.delete",
+        "command": "extension.delete",
         "title": "DELETE",
         "category": "swagger-to-ts"
       }
