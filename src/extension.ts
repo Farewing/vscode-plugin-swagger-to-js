@@ -8,12 +8,17 @@ export function activate(context: vscode.ExtensionContext) {
 
   // buffett-flow/info
   const get = vscode.commands.registerCommand("swagger-to-ts.get", () =>
-    generate("get")
+    vscode.window.showInformationMessage("hello world")
   );
 
-  const post = vscode.commands.registerCommand("swagger-to-ts.post", () =>
-    generate("post")
-  );
+  const post = vscode.commands.registerCommand("swagger-to-ts.post", () => {
+    try {
+      vscode.window.showInformationMessage("post");
+      generate("post");
+    } catch (error) {
+      vscode.window.showErrorMessage(error);
+    }
+  });
 
   const put = vscode.commands.registerCommand("swagger-to-ts.put", () =>
     generate("put")
