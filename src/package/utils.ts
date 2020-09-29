@@ -83,8 +83,13 @@ export function getNodeType(obj: any): SchemaObjectType | undefined {
   return "object";
 }
 
-export const getDefinitionKey = (key: string): string => {
-  return (key || "").replace("#/definitions/", "");
+export const getDefinitionKey = (str: string): string => {
+  return str.split("/").pop() || "";
+};
+
+export const formatKey = (str: string): string => {
+  const key = getDefinitionKey(str);
+  return key.replace(/»/g, "").replace(/«/g, "_");
 };
 
 export const pickObjofKeys = (

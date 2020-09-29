@@ -1,5 +1,5 @@
 import { Schema } from "../types";
-import { comment, getNodeType, getDefinitionKey } from "./utils";
+import { comment, getNodeType, formatKey } from "./utils";
 
 export function transformRef(ref: string): string {
   const parts = ref.replace(/^#\//, "").split("/");
@@ -11,13 +11,13 @@ export const tsIntersectionOf = (types: string[]): string => {
 };
 
 export const tsArrayOf = (type: string): string => {
-  return `(${type})[]`;
+  return `${type}[]`;
 };
 
 export const transform = (node: Schema): string => {
   switch (getNodeType(node)) {
     case "ref": {
-      return getDefinitionKey(node.$ref);
+      return formatKey(node.$ref);
       // return transformRef(node.$ref);
     }
     case "string":
@@ -102,7 +102,7 @@ export const createInterface = (obj: { [key: string]: any }) => {
 
     // const name = getDefinitionKey(key);
 
-    output += `interface ${key}  ${transform(value)} ;\n`;
+    output += `interface ${formatKey(key)}  ${transform(value)};\n`;
   });
 
   return output;
